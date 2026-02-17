@@ -1,33 +1,33 @@
 # MIPS Processor: Single-Cycle & Pipeline Architecture
 
 ### Project Overview
- This project implements a fully functional **MIPS Processor** designed to demonstrate the evolution from a simple **Single-Cycle** execution model to a high-performance **5-Stage Pipeline** architecture. The design was developed using **VHDL** and verified on a **Nexys A7 FPGA** development board.
+This project implements a fully functional **MIPS Processor** designed to demonstrate the evolution from a simple **Single-Cycle** execution model to a high-performance **5-Stage Pipeline** architecture. The design was developed using **VHDL** and verified on a **Nexys A7 FPGA** development board.
 
 ---
 
 ### Components
-* [cite_start]**Instruction Fetch (IFetch)**: Fetches the instruction from memory at the beginning of each cycle using the Program Counter (PC)[cite: 160, 161].
-* [cite_start]**Instruction Decode (ID)**: Decodes the 32-bit instruction, accesses the Register File, and prepares data for execution[cite: 156, 161].
-* [cite_start]**Execution (EX)**: Performs arithmetic/logical operations and calculates branch addresses using the ALU[cite: 156, 174].
-* [cite_start]**Memory (MEM)**: Handles data memory operations, such as loading and storing data (LW/SW)[cite: 156].
-* [cite_start]**Write-Back (WB)**: Writes the results of computations back to the registers to complete the cycle[cite: 156].
-* [cite_start]**Control Unit (CU)**: The "brain" of the processor that activates the correct signals for each instruction[cite: 161].
+* **Instruction Fetch (IFetch)**: Fetches the instruction from memory at the beginning of each cycle using the Program Counter (PC).
+* **Instruction Decode (ID)**: Decodes the 32-bit instruction, accesses the Register File, and prepares data for execution.
+* **Execution (EX)**: Performs arithmetic/logical operations and calculates branch addresses using the ALU.
+* **Memory (MEM)**: Handles data memory operations, such as loading and storing data (LW/SW).
+* **Write-Back (WB)**: Writes the results of computations back to the registers to complete the cycle.
+* **Control Unit (CU)**: The "brain" of the processor that activates the correct signals for each instruction.
 * **Monostable Pulse Generator (MPG)**: Generates a single-cycle pulse to synchronize manual button presses with the clock, allowing step-by-step execution.
 * **Seven Segment Display (SSD)**: Displays real-time results, PC status, or instruction codes for hardware debugging.
 
 ---
 
 ### Implemented Instructions
-The processor supports a diverse set of MIPS instructions, including standard operations and custom extensions found in the provided VHDL logic:
+The processor supports a diverse set of MIPS instructions, including standard operations and custom extensions found in the VHDL logic:
 
 #### Standard Instructions
-* [cite_start]**Memory & Arithmetic**: LW (Load Word), SW (Store Word), ADDI (Add Immediate), and standard R-Type operations[cite: 174].
+* **Memory & Arithmetic**: LW (Load Word), SW (Store Word), ADDI (Add Immediate), and standard R-Type operations.
 * **Control Flow**: BEQ (Branch on Equal), BNE (Branch on Not Equal), and J (Jump).
 
 #### Extended & Custom Instructions
 * **SRA & XOR**: Shift Right Arithmetic and bitwise Exclusive OR operations.
 * **ORI**: Logical OR with an immediate value for bit manipulation.
-* **BGEZ & BGTZ**: Specialized branches (**Branch on Greater than or Equal to Zero** and **Branch on Greater than Zero**). These use a custom `Greater` flag in the EX stage to handle advanced conditional logic.
+* **BGEZ & BGTZ**: Specialized branches (**Branch on Greater than or Equal to Zero** and **Branch on Greater than Zero**). These use a custom **Greater** flag in the EX stage to handle advanced conditional logic.
 
 ---
 
